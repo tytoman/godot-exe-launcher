@@ -10,7 +10,6 @@ class_name GameButton extends AnimatedButton
 			_editable_changed()
 
 var game_info: GameInfo
-var min_size: Vector2
 
 @onready var title_label: Label = $TitleLabel
 @onready var logo_texture: TextureRect = $LogoTexture
@@ -23,7 +22,6 @@ func _ready() -> void:
 	super._ready()
 	
 	pivot_offset = size * 0.5
-	min_size = custom_minimum_size
 	pressed.connect(_on_pressed)
 	left_button.pressed.connect(_move.bind(-1))
 	right_button.pressed.connect(_move.bind(1))
@@ -56,10 +54,10 @@ func _on_info_changed(info: GameInfo) -> void:
 		queue_free()
 
 
-func _move(direction: int) -> void:
-	get_parent().move_child(self, get_index() + direction)	
-
-
 func _editable_changed() -> void:
 	left_button.visible = editable
 	right_button.visible = editable
+
+
+func _move(direction: int) -> void:
+	get_parent().move_child(self, get_index() + direction)	

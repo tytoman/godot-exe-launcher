@@ -37,10 +37,6 @@ func setup(info: GameInfo) -> void:
 	background.texture = info.screenshot_texture
 
 
-func refresh() -> void:
-	setup(DataSystem.load_game_info(game_info.title))
-
-
 func _run_exe() -> void:
 	var panel := running_panel_scene.instantiate() as AnimatedPanel
 	var scene := get_tree().current_scene
