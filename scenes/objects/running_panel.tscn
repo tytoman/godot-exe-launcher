@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://7oq6ayjq85ic"]
+
+[ext_resource type="Shader" path="res://scripts/shaders/blur.gdshader" id="1_620tw"]
+[ext_resource type="Script" path="res://scripts/nodes/animated_panel.gd" id="2_pxna1"]
+[ext_resource type="FontFile" uid="uid://00bmdktw1fa" path="res://fonts/NOTOSANSJP-BLACK.OTF" id="2_vwwrs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_171x8"]
+shader = ExtResource("1_620tw")
+shader_parameter/blur = 2.0
+
+[node name="RunningPanel" type="ColorRect"]
+material = SubResource("ShaderMaterial_171x8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_pxna1")
+
+[node name="RunningLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vwwrs")
+theme_override_font_sizes/font_size = 48
+text = "Running..."
+horizontal_alignment = 1
+vertical_alignment = 1

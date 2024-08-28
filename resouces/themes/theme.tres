@@ -1,0 +1,35 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://qdi0n3hm2abo"]
+
+[ext_resource type="StyleBox" uid="uid://c0mbg1bwarst8" path="res://resouces/themes/boxes/rounded_box.tres" id="1_c6781"]
+[ext_resource type="StyleBox" uid="uid://xti4besite5p" path="res://resouces/themes/edit/edit_normal.tres" id="2_ie7ji"]
+[ext_resource type="StyleBox" uid="uid://d228fxjrs5r5x" path="res://resouces/themes/edit/edit_focus.tres" id="2_jgsyy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqggt"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.8, 0.8, 0.8, 1)
+Button/colors/font_hover_pressed_color = Color(0.7, 0.7, 0.7, 1)
+Button/colors/font_pressed_color = Color(0.7, 0.7, 0.7, 1)
+Button/colors/icon_hover_color = Color(0.8, 0.8, 0.8, 1)
+Button/colors/icon_hover_pressed_color = Color(0.7, 0.7, 0.7, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(0.7, 0.7, 0.7, 1)
+Button/styles/disabled = ExtResource("1_c6781")
+Button/styles/disabled_mirrored = ExtResource("1_c6781")
+Button/styles/focus = SubResource("StyleBoxEmpty_vqggt")
+Button/styles/hover = ExtResource("1_c6781")
+Button/styles/hover_mirrored = ExtResource("1_c6781")
+Button/styles/hover_pressed = ExtResource("1_c6781")
+Button/styles/hover_pressed_mirrored = ExtResource("1_c6781")
+Button/styles/normal = ExtResource("1_c6781")
+Button/styles/normal_mirrored = ExtResource("1_c6781")
+Button/styles/pressed = ExtResource("1_c6781")
+Button/styles/pressed_mirrored = ExtResource("1_c6781")
+LineEdit/styles/focus = ExtResource("2_jgsyy")
+LineEdit/styles/normal = ExtResource("2_ie7ji")
+LineEdit/styles/read_only = ExtResource("2_ie7ji")
+Panel/styles/panel = ExtResource("1_c6781")
+TextEdit/styles/focus = ExtResource("2_jgsyy")
+TextEdit/styles/normal = ExtResource("2_ie7ji")
+TextEdit/styles/read_only = ExtResource("2_ie7ji")

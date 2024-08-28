@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0l6fpj25dnrk"]
+
+[ext_resource type="Shader" path="res://scripts/shaders/shiny.gdshader" id="1_5cvme"]
+[ext_resource type="Script" path="res://scripts/scenes/game_button.gd" id="1_723kt"]
+[ext_resource type="StyleBox" uid="uid://c0mbg1bwarst8" path="res://resouces/themes/boxes/rounded_box.tres" id="1_cuctb"]
+[ext_resource type="Shader" path="res://scripts/shaders/gradation_fade.gdshader" id="1_owvhy"]
+[ext_resource type="PackedScene" uid="uid://obxhafw1r4wn" path="res://scenes/objects/game_info_panel.tscn" id="3_f17v0"]
+[ext_resource type="FontFile" uid="uid://l3kurcsot7lk" path="res://fonts/NOTOSANSJP-BOLD.OTF" id="6_shg4l"]
+[ext_resource type="Texture2D" uid="uid://dx76enad8f0gm" path="res://textures/material_icons/arrow_left_16dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.png" id="9_s27ha"]
+[ext_resource type="Texture2D" uid="uid://h3jw0g2cfjdd" path="res://textures/material_icons/arrow_right_16dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.png" id="10_kgjf3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o5v5t"]
+shader = ExtResource("1_owvhy")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/angle = -90.0
+shader_parameter/offset = -0.7
+shader_parameter/fade_scale = 0.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6xvjl"]
+resource_local_to_scene = true
+shader = ExtResource("1_5cvme")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/angle = 225.0
+shader_parameter/min_edge = 0.85
+shader_parameter/max_edge = 0.9
+shader_parameter/offset = -0.25
+
+[node name="GameButton" type="Button" node_paths=PackedStringArray("shiny")]
+self_modulate = Color(0.05, 0.05, 0.05, 1)
+clip_children = 2
+clip_contents = true
+custom_minimum_size = Vector2(256, 256)
+offset_right = 256.0
+offset_bottom = 256.0
+pivot_offset = Vector2(128, 128)
+theme_override_styles/normal = ExtResource("1_cuctb")
+script = ExtResource("1_723kt")
+game_info_panel_scene = ExtResource("3_f17v0")
+shiny = NodePath("Shiny")
+
+[node name="CoverTexture" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_o5v5t")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LogoTexture" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -33.0
+offset_right = -16.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_shg4l")
+text = "Game Title"
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="Shiny" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_6xvjl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.25098)
+
+[node name="LeftButton" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_right = -32.0
+offset_bottom = 48.0
+grow_horizontal = 0
+icon = ExtResource("9_s27ha")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="RightButton" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 48.0
+grow_horizontal = 0
+icon = ExtResource("10_kgjf3")
+flat = true
+expand_icon = true

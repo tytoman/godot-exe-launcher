@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnswveyxep3g7"]
+
+[ext_resource type="Script" path="res://scripts/scenes/image_loader.gd" id="1_i7kem"]
+[ext_resource type="Texture2D" uid="uid://dvsisl1yf76ot" path="res://textures/place_holder.png" id="2_hs2f2"]
+[ext_resource type="Texture2D" uid="uid://s277mwy73687" path="res://textures/material_icons/close_48dp_FFFFFF_FILL1_wght400_GRAD0_opsz48.png" id="2_luxyt"]
+[ext_resource type="Theme" uid="uid://dsqti6jo7jhtl" path="res://resouces/themes/editor_theme.tres" id="3_rguw1"]
+
+[node name="ImageLoader" type="Panel"]
+offset_right = 192.0
+offset_bottom = 192.0
+script = ExtResource("1_i7kem")
+place_holder_texture = ExtResource("2_hs2f2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hs2f2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -40.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LoadButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load"
+
+[node name="ClearButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_constants/icon_max_width = 20
+icon = ExtResource("2_luxyt")
+icon_alignment = 1
+expand_icon = true
+
+[node name="FileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+initial_position = 1
+size = Vector2i(1200, 640)
+theme = ExtResource("3_rguw1")
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png,*.jpg;Images", "")
+use_native_dialog = true

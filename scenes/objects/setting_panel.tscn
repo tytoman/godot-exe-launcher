@@ -1,0 +1,103 @@
+[gd_scene load_steps=4 format=3 uid="uid://b08kn4jakfgfc"]
+
+[ext_resource type="Script" path="res://scripts/scenes/setting_panel.gd" id="1_kcvq4"]
+[ext_resource type="FontFile" uid="uid://l3kurcsot7lk" path="res://fonts/NOTOSANSJP-BOLD.OTF" id="2_84quu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s13ts"]
+bg_color = Color(0.1, 0.1, 0.1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="SettingPanel" type="Panel"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(600, 344)
+theme_override_styles/panel = SubResource("StyleBoxFlat_s13ts")
+script = ExtResource("1_kcvq4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 32.0
+offset_right = -48.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 128
+
+[node name="SettingContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_override_constants/separation = 32
+
+[node name="EditableButton" type="CheckButton" parent="HBoxContainer/SettingContainer"]
+layout_mode = 2
+text = "Editable"
+flat = true
+
+[node name="OpenButton" type="Button" parent="HBoxContainer/SettingContainer"]
+layout_mode = 2
+text = "Open data file location"
+
+[node name="QuitButton" type="Button" parent="HBoxContainer/SettingContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Space" type="Control" parent="HBoxContainer/SettingContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CloseButton" type="Button" parent="HBoxContainer/SettingContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="LicenseContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/LicenseContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_84quu")
+text = "License"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/LicenseContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LicenseContainer/ScrollContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/LicenseContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Godot Engine[/b]
+[indent]This software uses Godot Engine.
+godotengine.org/license[/indent]
+
+[b]Noto Sans Japanese[/b]
+[indent]These fonts are licensed under the Open Font License.
+https://openfontlicense.org/[/indent]
+
+[b]Material Design Icons[/b]
+[indent]These icons are licensed under the Apache-2.0 license.
+https://www.apache.org/licenses/[/indent]
+
+[b]Sample Images[/b]
+[indent]Sample Images are generated with AI: Bing Image Creator.
+https://www.bing.com/images/create/[/indent]"
+fit_content = true

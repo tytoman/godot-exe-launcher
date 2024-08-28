@@ -1,0 +1,190 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj8cjhev5m5ji"]
+
+[ext_resource type="Script" path="res://scripts/scenes/info_edit_panel.gd" id="1_dkdny"]
+[ext_resource type="PackedScene" uid="uid://cnswveyxep3g7" path="res://scenes/objects/image_loader.tscn" id="3_2m8lo"]
+[ext_resource type="FontFile" uid="uid://daf6mkmoutdof" path="res://fonts/NOTOSANSJP-MEDIUM.OTF" id="4_btyhq"]
+[ext_resource type="Theme" uid="uid://dsqti6jo7jhtl" path="res://resouces/themes/editor_theme.tres" id="4_qb1u1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s13ts"]
+bg_color = Color(0.1, 0.1, 0.1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="InfoEditPanel" type="Panel"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(600, 344)
+theme_override_styles/panel = SubResource("StyleBoxFlat_s13ts")
+script = ExtResource("1_dkdny")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_btyhq")
+theme_override_font_sizes/font_size = 16
+text = "GameTitle"
+
+[node name="TitleEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Space" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="CreatorLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_btyhq")
+theme_override_font_sizes/font_size = 16
+text = "Creator"
+
+[node name="CreatorEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Space2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="ExeFileLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_btyhq")
+theme_override_font_sizes/font_size = 16
+text = "Exe File"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ExeFileEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SelectButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Select"
+
+[node name="Space3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_btyhq")
+theme_override_font_sizes/font_size = 16
+text = "Description
+"
+
+[node name="DescriptionEdit" type="TextEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 13
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LogoLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_btyhq")
+theme_override_font_sizes/font_size = 16
+text = "Logo"
+
+[node name="LogoLoader" parent="VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("3_2m8lo")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Space" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="CoverLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_btyhq")
+theme_override_font_sizes/font_size = 16
+text = "Cover"
+
+[node name="CoverLoader" parent="VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("3_2m8lo")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Space2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="ScreenshotLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_btyhq")
+theme_override_font_sizes/font_size = 16
+text = "Screenshot"
+
+[node name="ScreenshotLoader" parent="VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("3_2m8lo")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="DeleteButton" type="Button" parent="VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "Delete Data"
+
+[node name="Space" type="Control" parent="VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CancelButton" type="Button" parent="VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "Cancel"
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "Save"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+initial_position = 1
+size = Vector2i(1200, 640)
+theme = ExtResource("4_qb1u1")
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.exe")
+use_native_dialog = true
