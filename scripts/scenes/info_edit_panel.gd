@@ -35,9 +35,9 @@ func setup(info: GameInfo) -> void:
 	creator_edit.text = info.creator
 	description_edit.text = info.description
 	exe_file_edit.text = info.exe_file_path
-	logo_loader.update_texture(info.logo_image_path)
-	cover_loader.update_texture(info.cover_image_path)
-	screenshot_loader.update_texture(info.screenshot_image_path)
+	logo_loader.update_texture_path(info.logo_image_path)
+	cover_loader.update_texture_path(info.cover_image_path)
+	screenshot_loader.update_texture_path(info.screenshot_image_path)
 	
 	if game_info:
 		delete_button.show()
